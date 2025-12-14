@@ -38,9 +38,10 @@
               <span class="skill-tag featured">Vue.js</span>
               <span class="skill-tag featured">MongoDB</span>
               <span class="skill-tag">React</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C++</span>
               <span class="skill-tag">Python</span>
               <span class="skill-tag">Go</span>
-              <span class="skill-tag">C/C++</span>
               <span class="skill-tag">React Native</span>
               <span class="skill-tag">Flutter</span>
             </div>
@@ -117,7 +118,7 @@ useHead({
 .hero {
   position: relative;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
 }
 

@@ -1,8 +1,8 @@
 <template>
   <section class="contact-section" style="padding: 4rem 0;">
     <div class="container">
-      <h1 style="text-align: center; font-size: 3rem; margin-bottom: 1rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Get In Touch</h1>
-      <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.125rem;">
+      <h1 style="text-align: left; font-size: 3rem; margin-bottom: 1rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Get In Touch</h1>
+      <p style="text-align: left; color: var(--text-light); margin-bottom: 3rem; font-size: 1.125rem;">
         I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
       </p>
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Bungee:wght@400&family=Noto+Serif+SC:wght@400;600;700;900&display=swap');
 
 * {
   margin: 0;
@@ -74,10 +74,10 @@ body {
   font-weight: 400;
 }
 
-/* Headings - Chinese/Cubic Style */
+/* Headings - Chinese/Cubic Brush Style */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
-  font-weight: 700;
+  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
   line-height: 1.2;
@@ -86,8 +86,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 900;
-  letter-spacing: 4px;
+  font-weight: 400;
+  letter-spacing: 3px;
   position: relative;
   display: inline-block;
   background: var(--gradient-primary);
@@ -105,8 +105,8 @@ h1 {
 
 h2 {
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-weight: 400;
+  letter-spacing: 2px;
   position: relative;
   display: inline-block;
   background: var(--gradient-primary);
@@ -131,8 +131,8 @@ h2::after {
 
 h3 {
   font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
   color: var(--text-color);
   position: relative;
   padding-left: 1rem;
@@ -181,9 +181,9 @@ nav {
 }
 
 .logo {
-  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
+  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 400;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -202,7 +202,7 @@ nav {
 }
 
 .nav-links a {
-  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
+  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
@@ -355,57 +355,72 @@ section {
   flex-wrap: wrap;
 }
 
-/* Buttons - Glassmorphism */
+/* Buttons - Chinese Dojo Cubic Style */
 .btn {
+  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
   display: inline-block;
-  padding: 0.875rem 2rem;
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 2.5rem;
+  background: var(--gradient-primary);
   color: white;
   text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
+  border-radius: 0;
+  font-weight: 400;
+  font-size: 1rem;
   transition: all 0.3s ease;
   border: 2px solid var(--primary-color);
   cursor: pointer;
-  box-shadow: var(--shadow-glass), 0 0 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    4px 4px 0 0 rgba(220, 38, 38, 0.5),
+    0 0 20px rgba(220, 38, 38, 0.4);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .btn::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: 0;
+  width: 4px;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+  background: var(--secondary-color);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
 .btn:hover::before {
-  left: 100%;
+  transform: scaleY(1);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(220, 38, 38, 0.4);
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    6px 6px 0 0 rgba(220, 38, 38, 0.6),
+    0 0 30px rgba(220, 38, 38, 0.5),
+    0 0 50px rgba(251, 191, 36, 0.3);
+  border-color: var(--primary-glow);
+  background: var(--gradient-accent);
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 
+    4px 4px 0 0 rgba(220, 38, 38, 0.3),
+    0 0 15px rgba(220, 38, 38, 0.2);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--gradient-primary);
+  color: white;
+  border-color: var(--primary-glow);
+  box-shadow: 
+    6px 6px 0 0 rgba(220, 38, 38, 0.5),
+    0 0 25px rgba(220, 38, 38, 0.4);
+  transform: translate(-2px, -2px);
 }
 
 /* Resume Section - Glassmorphism */
@@ -737,11 +752,13 @@ section {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 3rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: 
+    4px 4px 0 0 rgba(220, 38, 38, 0.4),
+    0 0 0 2px var(--primary-color);
+  border: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .contact-form::before {
@@ -749,8 +766,8 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 3px;
+  width: 4px;
+  height: 100%;
   background: var(--gradient-primary);
 }
 
@@ -759,33 +776,59 @@ section {
 }
 
 .form-group label {
+  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
   display: block;
   margin-bottom: 0.75rem;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 0.9rem;
   color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.form-group label::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 0.7em;
+  line-height: 1;
 }
 
 .form-group input,
 .form-group textarea {
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   border: 2px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 1rem;
-  font-family: inherit;
   background: var(--bg-glass);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--text-color);
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2), 0 0 15px rgba(220, 38, 38, 0.3);
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.3),
+    0 0 20px rgba(220, 38, 38, 0.4),
+    4px 4px 0 0 rgba(220, 38, 38, 0.2);
   background: var(--bg-hover);
+  transform: translate(-2px, -2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
 .form-group textarea {

@@ -1,8 +1,8 @@
 <template>
   <section style="padding: 4rem 0;">
     <div class="container">
-      <h1 style="text-align: center; font-size: 3rem; margin-bottom: 1rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">My Projects</h1>
-      <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 1.125rem;">
+      <h1 style="text-align: left; font-size: 3rem; margin-bottom: 1rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">My Projects</h1>
+      <p style="text-align: left; color: var(--text-light); margin-bottom: 2rem; font-size: 1.125rem;">
         A selection of projects I've worked on. Click on any project to see more details.
       </p>
       
