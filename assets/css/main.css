@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -58,17 +60,98 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--text-color);
   background: transparent !important;
   background-color: transparent !important;
-  line-height: 1.6;
+  line-height: 1.7;
   transition: background 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0 !important;
   padding: 0 !important;
+  font-weight: 400;
+}
+
+/* Headings - Chinese/Cubic Style */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  position: relative;
+  display: inline-block;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    4px 4px 0 rgba(220, 38, 38, 0.4),
+    8px 8px 0 rgba(220, 38, 38, 0.2),
+    12px 12px 0 rgba(220, 38, 38, 0.1);
+  transform: translate(0, 0);
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.3));
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    3px 3px 0 rgba(220, 38, 38, 0.25),
+    6px 6px 0 rgba(220, 38, 38, 0.1);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--text-color);
+  position: relative;
+  padding-left: 1rem;
+}
+
+h3::before {
+  content: '■';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-size: 0.8em;
+  line-height: 1;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text-secondary);
 }
 
 .container {
@@ -77,12 +160,12 @@ body {
   padding: 0 2rem;
 }
 
-/* Header & Navigation - Glassmorphism */
+/* Header & Navigation - Chinese Dojo Style */
 header {
   background: var(--bg-card);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -98,14 +181,17 @@ nav {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
+  font-size: 1.75rem;
   font-weight: 700;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-decoration: none;
-  letter-spacing: -0.5px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(220, 38, 38, 0.3);
 }
 
 .nav-links {
@@ -116,12 +202,31 @@ nav {
 }
 
 .nav-links a {
+  font-family: 'Oswald', 'Noto Sans SC', sans-serif;
   text-decoration: none;
-  color: var(--text-secondary);
-  font-weight: 500;
-  transition: color 0.3s;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
   position: relative;
-  padding: 0.5rem 0;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-primary);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
 }
 
 .nav-links a::after {
@@ -130,14 +235,26 @@ nav {
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 3px;
   background: var(--gradient-primary);
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
 }
 
 .nav-links a:hover,
 .nav-links a.router-link-active {
   color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(220, 38, 38, 0.1);
+  box-shadow: 
+    0 0 0 2px rgba(220, 38, 38, 0.3),
+    0 4px 15px rgba(220, 38, 38, 0.2);
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+.nav-links a:hover::before,
+.nav-links a.router-link-active::before {
+  transform: scaleY(1);
 }
 
 .nav-links a:hover::after,
@@ -178,27 +295,49 @@ section {
 .hero .container {
   position: relative;
   z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+  padding: 2rem;
+  border-radius: 0;
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: clamp(3rem, 10vw, 6rem);
   margin-bottom: 1rem;
-  font-weight: 800;
-  letter-spacing: -2px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 30px rgba(220, 38, 38, 0.3);
+  text-shadow: 
+    4px 4px 0 rgba(220, 38, 38, 0.4),
+    8px 8px 0 rgba(220, 38, 38, 0.2),
+    0 8px 30px rgba(0, 0, 0, 0.9),
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    0 0 50px rgba(220, 38, 38, 0.5),
+    0 0 80px rgba(220, 38, 38, 0.3),
+    0 0 120px rgba(251, 191, 36, 0.2);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8));
 }
 
 .hero p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   opacity: 0.95;
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.8),
+    0 6px 25px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(220, 38, 38, 0.3),
+    0 0 50px rgba(251, 191, 36, 0.2);
+  font-weight: 400;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.7));
 }
 
 .hero .hero-subtitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  opacity: 0.8;
+  opacity: 0.9;
   margin-top: 1rem;
+  text-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.7),
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(220, 38, 38, 0.2);
+  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.6));
 }
 
 .hero-buttons {
@@ -218,14 +357,16 @@ section {
   -webkit-backdrop-filter: blur(10px);
   color: white;
   text-decoration: none;
-  border-radius: 16px;
+  border-radius: 4px;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--primary-color);
   cursor: pointer;
-  box-shadow: var(--shadow-glass);
+  box-shadow: var(--shadow-glass), 0 0 15px rgba(220, 38, 38, 0.3);
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .btn::before {
@@ -275,40 +416,53 @@ section {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: var(--shadow-glass);
-  border: 1px solid var(--border-color);
+  border-radius: 0;
+  box-shadow: 
+    4px 4px 0 0 rgba(220, 38, 38, 0.4),
+    0 0 0 1px var(--border-color);
+  border: none;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-item::after {
+  content: '◆';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  opacity: 0.9;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
 }
 
 .resume-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(220, 38, 38, 0.2);
-  border-color: var(--primary-color);
+  transform: translate(-2px, -2px);
+  box-shadow: 
+    6px 6px 0 0 rgba(220, 38, 38, 0.5),
+    0 0 0 1px var(--primary-color),
+    0 0 20px rgba(220, 38, 38, 0.2);
   background: var(--bg-hover);
 }
 
 .resume-item h2 {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   margin-bottom: 1.5rem;
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+}
+
+.resume-item h2::after {
+  width: 80px;
+  height: 5px;
 }
 
 .resume-item h3 {
   margin-bottom: 0.5rem;
-  color: var(--text-color);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
 }
 
 .resume-item p {
-  color: var(--text-secondary);
   margin-bottom: 1rem;
-  line-height: 1.8;
 }
 
 .resume-item ul {
@@ -324,11 +478,12 @@ section {
 }
 
 .resume-item li::before {
-  content: '▸';
+  content: '◆';
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: bold;
+  font-size: 0.75rem;
 }
 
 /* Skills - Glassmorphism */
@@ -345,12 +500,13 @@ section {
   -webkit-backdrop-filter: blur(10px);
   color: var(--text-color);
   padding: 0.625rem 1.25rem;
-  border-radius: 20px;
+  border-radius: 4px;
   font-size: 0.875rem;
   font-weight: 600;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-glass);
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .skill-tag:hover {
@@ -384,12 +540,24 @@ section {
   background: var(--bg-card);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-radius: 24px;
+  border-radius: 8px;
   box-shadow: var(--shadow-glass);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  z-index: 1;
 }
 
 .project-card:hover {
@@ -433,9 +601,7 @@ section {
 
 .project-card h3 {
   margin-bottom: 0.75rem;
-  color: var(--text-color);
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
 }
 
 .project-card p {
@@ -488,13 +654,8 @@ section {
 }
 
 .project-detail-header h1 {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: 1rem;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .project-detail-content {
@@ -502,19 +663,26 @@ section {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 3rem;
-  border-radius: 24px;
+  border-radius: 8px;
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-detail-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
 }
 
 .project-detail-content h2 {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   margin: 2rem 0 1rem;
-  font-size: 1.75rem;
-  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
 }
 
 .project-detail-content h2:first-child {
@@ -523,8 +691,6 @@ section {
 
 .project-detail-content p {
   margin-bottom: 1.5rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
 }
 
 .project-url {
@@ -564,9 +730,21 @@ section {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 3rem;
-  border-radius: 24px;
+  border-radius: 8px;
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
 }
 
 .form-group {
@@ -584,8 +762,8 @@ section {
 .form-group textarea {
   width: 100%;
   padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
   font-size: 1rem;
   font-family: inherit;
   background: var(--bg-glass);
@@ -599,7 +777,7 @@ section {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2), 0 0 15px rgba(220, 38, 38, 0.3);
   background: var(--bg-hover);
 }
 
@@ -636,7 +814,7 @@ section {
   background: var(--bg-hover);
 }
 
-/* Footer - Glassmorphism */
+/* Footer - Chinese Dojo Style */
 footer {
   background: var(--bg-card);
   backdrop-filter: blur(20px) saturate(180%);
@@ -644,7 +822,7 @@ footer {
   color: var(--text-secondary);
   text-align: center;
   padding: 2.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
   transition: all 0.3s ease;
 }
 

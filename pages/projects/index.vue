@@ -171,14 +171,16 @@ useHead({
   background: var(--bg-glass);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
   color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-glass);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .filter-btn:hover {

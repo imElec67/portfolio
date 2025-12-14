@@ -205,7 +205,19 @@ useHead({
 .direct-contact {
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
+  position: relative;
+}
+
+.direct-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--gradient-primary);
 }
 
 .direct-contact-title {
@@ -232,13 +244,25 @@ useHead({
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   padding: 1.5rem;
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: var(--shadow-glass);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
 }
 
 .contact-info-card:hover {
