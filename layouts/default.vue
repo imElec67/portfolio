@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="layout-wrapper">
+    <Particles />
     <header>
       <nav>
         <NuxtLink to="/" class="logo">Marius Ledig</NuxtLink>
@@ -18,6 +19,13 @@
     </footer>
   </div>
 </template>
+
+<style scoped>
+.layout-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+</style>
 
 <script setup>
 // Dojo theme - single dark mode

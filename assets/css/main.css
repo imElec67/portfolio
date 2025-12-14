@@ -168,7 +168,7 @@ header {
   border-bottom: 2px solid var(--border-color);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: all 0.3s ease;
   box-shadow: var(--shadow-glass);
 }
@@ -264,10 +264,17 @@ nav {
 
 /* Dojo Theme - No theme toggle */
 
+main {
+  position: relative;
+  z-index: 1;
+}
+
 /* Sections */
 section {
   padding: 5rem 0;
   transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero Section - Glassmorphism */
@@ -824,6 +831,8 @@ footer {
   padding: 2.5rem;
   border-top: 2px solid var(--border-color);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive */

@@ -14,6 +14,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const Particles: typeof import("../components/Particles.vue")['default']
 export const ProjectsAffluenceDashboard: typeof import("../components/projects/AffluenceDashboard.vue")['default']
 export const ProjectsAffluenceWebsite: typeof import("../components/projects/AffluenceWebsite.vue")['default']
 export const ProjectsMonitorManager: typeof import("../components/projects/MonitorManager.vue")['default']
@@ -43,6 +44,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyParticles: LazyComponent<typeof import("../components/Particles.vue")['default']>
 export const LazyProjectsAffluenceDashboard: LazyComponent<typeof import("../components/projects/AffluenceDashboard.vue")['default']>
 export const LazyProjectsAffluenceWebsite: LazyComponent<typeof import("../components/projects/AffluenceWebsite.vue")['default']>
 export const LazyProjectsMonitorManager: LazyComponent<typeof import("../components/projects/MonitorManager.vue")['default']>
