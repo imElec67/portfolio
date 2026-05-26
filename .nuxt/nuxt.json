@@ -1,9 +1,9 @@
 {
-  "_hash": "3m2vpXQmPs3TA3gx-nwJAeEtCql5aeXk6b4Vf9AZZCE",
+  "_hash": "A3WkBgfLiMf7XnGbg7Acr9vZVBJhWDqESD66QRTTS_Y",
   "project": {
-    "rootDir": "/Users/imelec/Documents/Project/_Other/portfolio"
+    "rootDir": "/Users/imelec/Documents/Project/front/portfolio"
   },
   "versions": {
-    "nuxt": "4.2.1"
+    "nuxt": "4.4.6"
   }
 }
