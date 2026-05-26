@@ -8,6 +8,14 @@
       
       <!-- Technology Filter -->
       <div class="filter-container">
+        <select
+          class="filter-select"
+          :value="selectedTech || ''"
+          @change="selectedTech = $event.target.value || null"
+        >
+          <option value="">All Technologies</option>
+          <option v-for="tech in allTechnologies" :key="tech" :value="tech">{{ tech }}</option>
+        </select>
         <div class="filter-buttons">
           <button
             @click="selectedTech = null"
@@ -230,5 +238,52 @@ useHead({
 
 .project-move {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-select {
+  display: none;
+  width: 100%;
+  max-width: 420px;
+  padding: 0.75rem 2.5rem 0.75rem 1.25rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2), 0 0 15px rgba(220, 38, 38, 0.15);
+}
+
+.filter-select option {
+  background: #1f1b17;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .filter-buttons {
+    display: none;
+  }
+  .filter-select {
+    display: block;
+  }
 }
 </style>
