@@ -76,7 +76,7 @@ const projects = [
     emoji: '👕',
     initials: 'AW',
     shortDescription: 'Self-hosted WordPress WooCommerce store on a LEMP VPS — multi-carrier shipping, 3 payment gateways, PDF invoices, multilingual FR/EN, and live sync with the Affluence Dashboard.',
-    description: 'The customer-facing e-commerce store for Affluence Store, a French sneaker and streetwear resale shop. Built on WordPress + WooCommerce with the Nasa Theme and Elementor, hosted on a self-managed LEMP VPS with LiteSpeed Cache for full-page and object caching. Integrates Colissimo, Mondial Relay, InPost, and Chronopost for multi-carrier checkout, with Stripe, PayPal, and WooPayments for payment processing. PDF invoices generate automatically via the WooCommerce PDF Invoices & Packing Slips plugin. TranslatePress handles FR/EN localisation. Inventory and orders sync bidirectionally with the Affluence Dashboard over the WooCommerce REST API.',
+    description: 'The customer-facing e-commerce store for Affluence Store, a French sneaker and streetwear resale shop. Built on WordPress + WooCommerce with the Elessi Theme and Elementor, hosted on a self-managed LEMP VPS with LiteSpeed Cache for full-page and object caching. Integrates Colissimo, Mondial Relay, InPost, and Chronopost for multi-carrier checkout, with Stripe, PayPal, and WooPayments for payment processing. PDF invoices generate automatically via the WooCommerce PDF Invoices & Packing Slips plugin. TranslatePress handles FR/EN localisation. Inventory and orders sync bidirectionally with the Affluence Dashboard over the WooCommerce REST API.',
     url: 'https://affluencestore.fr',
     technologies: ['WordPress', 'WooCommerce', 'PHP'],
     year: '2024',

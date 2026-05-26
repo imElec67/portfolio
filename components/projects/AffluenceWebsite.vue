@@ -11,7 +11,7 @@
         tuning, caching configuration, and server security.
       </p>
       <p>
-        Built on WordPress with WooCommerce and the Nasa theme, the site was designed to deliver
+        Built on WordPress with WooCommerce and the Elessi theme, the site was designed to deliver
         a premium retail experience: full-page hero sliders, product filtering, multi-carrier
         shipping checkout, three payment gateways, PDF invoice generation, and Google Review
         widgets for social proof. It integrates bidirectionally with the
@@ -145,7 +145,7 @@
           <span class="tech-desc">Core e-commerce engine — product catalogue, cart, checkout, order management, REST API for external integrations</span>
         </div>
         <div class="tech-item">
-          <span class="tech-name">Nasa Theme</span>
+          <span class="tech-name">Elessi Theme</span>
           <span class="tech-desc">Premium WooCommerce-native theme providing the base layout, product grid, and styling framework</span>
         </div>
         <div class="tech-item">
@@ -228,7 +228,7 @@
           </div>
           <div class="plugin-item">
             <span class="plugin-name">Nasa Core</span>
-            <span class="plugin-desc">Theme core functionality plugin</span>
+            <span class="plugin-desc">Companion core plugin bundled with the Elessi theme</span>
           </div>
           <div class="plugin-item">
             <span class="plugin-name">Slider Revolution</span>
