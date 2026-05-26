@@ -1,8 +1,8 @@
 <template>
   <section class="contact-section" style="padding: 4rem 0;">
     <div class="container">
-      <h1 style="text-align: left; font-size: 3rem; margin-bottom: 1rem; font-weight: 800; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Get In Touch</h1>
-      <p style="text-align: left; color: var(--text-light); margin-bottom: 3rem; font-size: 1.125rem;">
+      <h1>Get In Touch</h1>
+      <p style="text-align: left; color: var(--text-secondary); margin-bottom: 3rem; font-size: 1.125rem;">
         I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
       </p>
 
@@ -51,10 +51,17 @@
             ></textarea>
           </div>
 
-          <button type="submit" class="btn" style="width: 100%;">
-            Send Message
+            <button type="submit" class="btn" style="width: 100%;" :disabled="isSubmitting">
+            {{ isSubmitting ? 'Sending...' : 'Send Message' }}
           </button>
         </form>
+
+        <div v-if="submitted" class="success-banner" role="alert">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          <span>Message sent! Your email client will open — thank you for reaching out.</span>
+        </div>
 
         <div class="direct-contact">
           <h3 class="direct-contact-title">Or reach me directly</h3>
@@ -129,6 +136,9 @@ const form = reactive({
   message: ''
 })
 
+const isSubmitting = ref(false)
+const submitted = ref(false)
+
 const contactInfo = {
   email: 'marius.ledig@gmail.com',
   location: 'Strasbourg, France',
@@ -137,23 +147,28 @@ const contactInfo = {
 }
 
 const handleSubmit = () => {
-  // In a real application, you would send this to a backend API
+  isSubmitting.value = true
+
   const mailtoLink = `mailto:${contactInfo.email}?subject=${encodeURIComponent(form.subject)}&body=${encodeURIComponent(`From: ${form.name} (${form.email})\n\n${form.message}`)}`
   window.location.href = mailtoLink
-  
-  // Reset form
+
   form.name = ''
   form.email = ''
   form.subject = ''
   form.message = ''
-  
-  alert('Opening your email client...')
+
+  isSubmitting.value = false
+  submitted.value = true
+
+  setTimeout(() => { submitted.value = false }, 6000)
 }
 
 useHead({
-  title: 'Contact - Marius Ledig',
+  title: 'Contact — Marius Ledig',
   meta: [
-    { name: 'description', content: 'Get in touch with Marius Ledig - Full Stack Developer' }
+    { name: 'description', content: 'Get in touch with Marius Ledig, Full Stack Developer based in Strasbourg, France.' },
+    { property: 'og:title', content: 'Contact — Marius Ledig' },
+    { property: 'og:description', content: 'Get in touch with Marius Ledig, Full Stack Developer based in Strasbourg, France.' }
   ]
 })
 </script>
@@ -314,6 +329,37 @@ useHead({
 
 .contact-info-value:hover {
   color: var(--primary-color);
+}
+
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  border-radius: 4px;
+  color: #86efac;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+.success-banner svg {
+  width: 20px;
+  height: 20px;
+  stroke: #22c55e;
+  flex-shrink: 0;
+}
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 768px) {
