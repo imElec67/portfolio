@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Bungee:wght@400&family=Noto+Serif+SC:wght@400;600;700;900&display=swap');
-
 * {
   margin: 0;
   padding: 0;
@@ -76,7 +74,7 @@ body {
 
 /* Headings - Chinese/Cubic Brush Style */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-family: 'Bungee', sans-serif;
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -181,7 +179,7 @@ nav {
 }
 
 .logo {
-  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-family: 'Bungee', sans-serif;
   font-size: 1.75rem;
   font-weight: 400;
   background: var(--gradient-primary);
@@ -202,7 +200,7 @@ nav {
 }
 
 .nav-links a {
-  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-family: 'Bungee', sans-serif;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
@@ -299,6 +297,18 @@ section {
   pointer-events: none;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, #1a1612);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero .container {
   position: relative;
   z-index: 1;
@@ -357,7 +367,7 @@ section {
 
 /* Buttons - Chinese Dojo Cubic Style */
 .btn {
-  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-family: 'Bungee', sans-serif;
   display: inline-block;
   padding: 1rem 2.5rem;
   background: var(--gradient-primary);
@@ -485,6 +495,7 @@ section {
 
 .resume-item p {
   margin-bottom: 1rem;
+  max-width: 70ch;
 }
 
 .resume-item ul {
@@ -592,12 +603,10 @@ section {
 .project-card-image {
   width: 100%;
   height: 220px;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #1a0a0a 0%, #2d1010 50%, #1a1612 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 4rem;
   position: relative;
   overflow: hidden;
 }
@@ -605,16 +614,43 @@ section {
 .project-card-image::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(220, 38, 38, 0.2) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
   transition: opacity 0.3s;
 }
 
 .project-card:hover .project-card-image::before {
-  opacity: 0;
+  opacity: 0.6;
+}
+
+.card-monogram {
+  font-family: 'Bungee', sans-serif;
+  font-size: 3.25rem;
+  letter-spacing: 4px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.4));
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+.card-year {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  z-index: 1;
+  opacity: 0.8;
 }
 
 .project-card-content {
@@ -713,6 +749,7 @@ section {
 
 .project-detail-content p {
   margin-bottom: 1.5rem;
+  max-width: 70ch;
 }
 
 .project-url {
@@ -776,7 +813,7 @@ section {
 }
 
 .form-group label {
-  font-family: 'Bungee', 'Noto Serif SC', sans-serif;
+  font-family: 'Bungee', sans-serif;
   display: block;
   margin-bottom: 0.75rem;
   font-weight: 400;
@@ -883,34 +920,142 @@ footer {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
-  .nav-links {
-    gap: 1rem;
-    font-size: 0.875rem;
-  }
-  
+
   .hero h1 {
     font-size: 2.5rem;
   }
-  
+
   .hero p {
     font-size: 1.25rem;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
-  
+
   .resume-item {
     padding: 1.5rem;
   }
-  
+
   .project-detail-content {
     padding: 2rem;
   }
-  
+
   .contact-form {
     padding: 2rem;
   }
-  
+}
+
+/* ============================================================
+   Scroll Reveal
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* ============================================================
+   Mobile Navigation
+   ============================================================ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1100;
+  position: relative;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-color);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 45;
+}
+
+.nav-overlay.open { display: block; }
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100dvh;
+    width: min(280px, 80vw);
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(26, 22, 18, 0.98);
+    border-left: 2px solid var(--border-color);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2rem;
+    transition: right 0.3s ease;
+    z-index: 50;
+    gap: 0.5rem;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.25rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    display: block;
+  }
+}
+
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .particle {
+    display: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
