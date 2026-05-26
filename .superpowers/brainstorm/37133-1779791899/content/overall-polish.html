@@ -1,0 +1,226 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Bungee&display=swap');
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin: 28px 0 14px;
+  }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 8px; }
+  .panel {
+    background: #1a1612;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #2a2420;
+    position: relative;
+  }
+  .label-before { position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25); }
+  .label-after  { position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:rgba(34,197,94,0.12);color:#4ade80;border:1px solid rgba(34,197,94,0.25); }
+
+  /* Hero mocks */
+  .hero-mock {
+    border-radius: 6px;
+    overflow: hidden;
+    background: #1a0e0a;
+    position: relative;
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .hero-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=60') center/cover;
+    opacity: 0.35;
+  }
+  .hero-img-overlay-improved {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=60') center/cover;
+    opacity: 0.25;
+  }
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(26,14,10,0.5) 0%,
+      rgba(26,14,10,0.2) 40%,
+      rgba(26,14,10,0.7) 100%
+    );
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-h1 {
+    font-family: 'Bungee', sans-serif;
+    font-size: 38px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 8px;
+    line-height: 1.1;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+  }
+  .hero-sub { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #f3f4f6; margin: 0 0 4px; opacity: 0.95; text-shadow: 0 2px 8px rgba(0,0,0,0.9); }
+  .hero-location { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #d1d5db; opacity: 0.8; margin: 0 0 20px; text-shadow: 0 2px 6px rgba(0,0,0,0.8); }
+
+  /* Improved hero: scroll cue */
+  .scroll-cue {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    animation: bob 2s ease-in-out infinite;
+  }
+  .scroll-cue span { font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4); }
+  .scroll-cue svg { width:16px;height:16px;stroke:rgba(255,255,255,0.3); }
+  @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(5px)} }
+
+  /* Buttons */
+  .btn-row { display:flex;gap:10px;justify-content:center;flex-wrap:wrap; }
+  .btn-primary { font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;background:linear-gradient(135deg,#dc2626,#f59e0b);color:white;border:none;box-shadow:3px 3px 0 rgba(220,38,38,0.4);cursor:pointer; }
+  .btn-secondary { font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;background:transparent;color:#dc2626;border:2px solid rgba(220,38,38,0.6);cursor:pointer; }
+  .btn-primary-pill { font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;background:linear-gradient(135deg,#dc2626,#f59e0b);color:white;border:none;border-radius:2px;box-shadow:0 4px 20px rgba(220,38,38,0.35);cursor:pointer; }
+  .btn-secondary-pill { font-family:'Bungee',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;background:transparent;color:#dc2626;border:1.5px solid rgba(220,38,38,0.5);border-radius:2px;cursor:pointer; }
+
+  /* Status badge improved */
+  .status-badge { display:inline-flex;align-items:center;gap:6px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);border-radius:20px;padding:4px 12px;margin-bottom:12px; }
+  .status-dot { width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px rgba(34,197,94,0.6); }
+  .status-text { font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#9ca3af; }
+
+  /* Skills mock */
+  .skills-mock { background:#1a1612;border-radius:6px;padding:16px 20px; }
+  .skills-section-label { font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6b7280;margin:0 0 8px; }
+  .skill-chips { display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px; }
+  .s-chip { font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;padding:5px 12px;border-radius:3px; }
+  .s-primary { background:linear-gradient(135deg,#dc2626,#f59e0b);color:white; }
+  .s-secondary { background:rgba(255,255,255,0.05);border:1px solid rgba(220,38,38,0.3);color:#d1d5db; }
+
+  .note { font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:8px; }
+  hr.div { border:none;border-top:1px solid #2a2420;margin:24px 0; }
+</style>
+
+<h2>Overall Polish — Final decisions</h2>
+<p class="subtitle">Hero section, skills grouping, and buttons. These are the last things before I write the full design doc.</p>
+
+<!-- Hero -->
+<div class="section-title">Hero Section — Add scroll indicator + availability badge</div>
+<div class="split">
+  <div class="panel">
+    <span class="label-before">Before</span>
+    <div class="hero-mock" style="min-height:200px">
+      <div class="hero-img-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-h1">Marius Ledig</div>
+        <p class="hero-sub">Full Stack Developer &amp; Entrepreneur</p>
+        <p class="hero-location">Strasbourg, France · 27 years old</p>
+        <div class="btn-row">
+          <button class="btn-secondary">View My Projects</button>
+          <button class="btn-primary">Get In Touch</button>
+        </div>
+      </div>
+    </div>
+    <p class="note">No availability signal. Visitor doesn't know if you're open to work. No scroll cue — unclear the page continues.</p>
+  </div>
+  <div class="panel">
+    <span class="label-after">After</span>
+    <div class="hero-mock" style="min-height:200px">
+      <div class="hero-img-overlay-improved"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-content">
+        <div class="status-badge">
+          <div class="status-dot"></div>
+          <span class="status-text">Open to opportunities</span>
+        </div>
+        <div class="hero-h1">Marius Ledig</div>
+        <p class="hero-sub">Full Stack Developer &amp; Entrepreneur</p>
+        <p class="hero-location">Strasbourg, France · 27 years old</p>
+        <div class="btn-row">
+          <button class="btn-secondary-pill">View My Projects</button>
+          <button class="btn-primary-pill">Get In Touch</button>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M7 10l5 5 5-5"/></svg>
+      </div>
+    </div>
+    <p class="note">Green pulse badge = open to work signal. Bottom gradient + scroll cue shows the page continues. Slightly lower image opacity improves text legibility.</p>
+  </div>
+</div>
+
+<hr class="div">
+
+<!-- Skills grouping -->
+<div class="section-title">Skills Section — Group by category instead of a flat blob</div>
+<div class="split">
+  <div class="panel">
+    <span class="label-before">Before</span>
+    <div class="skills-mock">
+      <div class="skill-chips">
+        <span class="s-chip s-primary">Node.js</span>
+        <span class="s-chip s-primary">Vue.js</span>
+        <span class="s-chip s-primary">MongoDB</span>
+        <span class="s-chip s-secondary">React</span>
+        <span class="s-chip s-secondary">C</span>
+        <span class="s-chip s-secondary">C++</span>
+        <span class="s-chip s-secondary">Python</span>
+        <span class="s-chip s-secondary">Go</span>
+        <span class="s-chip s-secondary">React Native</span>
+        <span class="s-chip s-secondary">Flutter</span>
+      </div>
+    </div>
+    <p class="note">Flat list — featured vs. non-featured distinction is unclear. Hard to scan what you specialise in.</p>
+  </div>
+  <div class="panel">
+    <span class="label-after">After</span>
+    <div class="skills-mock">
+      <div class="skills-section-label">Core Stack</div>
+      <div class="skill-chips">
+        <span class="s-chip s-primary">Node.js</span>
+        <span class="s-chip s-primary">Vue.js</span>
+        <span class="s-chip s-primary">MongoDB</span>
+        <span class="s-chip s-primary">React</span>
+      </div>
+      <div class="skills-section-label">Languages</div>
+      <div class="skill-chips">
+        <span class="s-chip s-secondary">Python</span>
+        <span class="s-chip s-secondary">Go</span>
+        <span class="s-chip s-secondary">C</span>
+        <span class="s-chip s-secondary">C++</span>
+      </div>
+      <div class="skills-section-label">Mobile</div>
+      <div class="skill-chips">
+        <span class="s-chip s-secondary">React Native</span>
+        <span class="s-chip s-secondary">Flutter</span>
+      </div>
+    </div>
+    <p class="note">3 clear groups: Core Stack / Languages / Mobile. Immediately communicates depth and breadth.</p>
+  </div>
+</div>
+
+<hr class="div">
+
+<div style="background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,0.2);border-radius:6px;padding:16px">
+  <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:#d1d5db;margin:0 0 6px">
+    <strong style="color:#fbbf24">Summary of everything agreed so far:</strong>
+  </p>
+  <ul style="font-family:'Montserrat',sans-serif;font-size:12.5px;color:#9ca3af;margin:0;padding-left:18px;line-height:2">
+    <li>Mobile filter → <strong style="color:#d1d5db">Dropdown select</strong></li>
+    <li>Project cards → <strong style="color:#d1d5db">Monogram hero</strong> (initials, dark moody gradient, no emoji)</li>
+    <li>Subtitle text → <strong style="color:#d1d5db">Gray instead of amber</strong></li>
+    <li>Page h1 → <strong style="color:#d1d5db">Responsive clamp()</strong> on Projects &amp; Contact</li>
+    <li>Body text → <strong style="color:#d1d5db">max-width: 70ch</strong> line length cap</li>
+    <li>Hero → <strong style="color:#d1d5db">Availability badge + scroll cue + bottom vignette</strong></li>
+    <li>Skills → <strong style="color:#d1d5db">Grouped by category</strong> (Core / Languages / Mobile)</li>
+  </ul>
+</div>

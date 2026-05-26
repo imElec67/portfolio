@@ -1,0 +1,232 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Bungee&display=swap');
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .panel {
+    background: #1a1612;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #2a2420;
+    position: relative;
+  }
+  .panel-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  .label-before { background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+  .label-after { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+
+  /* Typography shared */
+  .t-h1 {
+    font-family: 'Bungee', sans-serif;
+    font-size: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 10px;
+    line-height: 1.1;
+    filter: drop-shadow(0 0 12px rgba(220,38,38,0.3));
+  }
+  .t-h1-mobile {
+    font-family: 'Bungee', sans-serif;
+    font-size: clamp(1.8rem, 12vw, 40px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 10px;
+    line-height: 1.1;
+  }
+  .t-amber { color: #fbbf24; font-family: 'Montserrat', sans-serif; font-size: 14px; line-height: 1.7; margin: 0 0 8px; }
+  .t-gray { color: #d1d5db; font-family: 'Montserrat', sans-serif; font-size: 14px; line-height: 1.7; margin: 0 0 8px; }
+  .t-muted { color: #9ca3af; font-family: 'Montserrat', sans-serif; font-size: 13px; line-height: 1.7; margin: 0; }
+  .t-body { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #d1d5db; line-height: 1.8; }
+
+  .issue-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    background: rgba(251,191,36,0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+  .fix-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    background: rgba(34,197,94,0.1);
+    color: #4ade80;
+    border: 1px solid rgba(34,197,94,0.3);
+  }
+
+  hr.divider { border: none; border-top: 1px solid #2a2420; margin: 28px 0; }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 16px;
+  }
+
+  .overflow-demo {
+    background: #0f0d0b;
+    border-radius: 4px;
+    padding: 16px;
+    border: 1px solid #1f1c18;
+  }
+
+  /* Hero mock */
+  .hero-mock {
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-bg {
+    background: linear-gradient(135deg, #1a1612 0%, #2a1f1c 50%, #1f1616 100%);
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(220,38,38,0.1) 0%, transparent 60%);
+  }
+
+  /* ---- Issue 3: line length ---- */
+  .full-width-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d1d5db;
+  }
+  .constrained-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d1d5db;
+    max-width: 65ch;
+  }
+</style>
+
+<h2>Readability Issues — Before &amp; After</h2>
+<p class="subtitle">Three specific fixes across the site. These are all proposed changes — let me know if any don't feel right.</p>
+
+<!-- Issue 1 -->
+<div class="section-title">Issue 1 — Subtitle text color</div>
+<div class="split">
+  <div class="panel">
+    <span class="panel-label label-before">Before</span>
+    <div class="issue-tag">⚠ Amber text for long copy</div>
+    <div class="hero-bg" style="border-radius:6px">
+      <div class="t-h1" style="font-size:28px">My Projects</div>
+      <p class="t-amber">A selection of projects I've worked on. Click on any project to see more details.</p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      Amber (#fbbf24) as body text strains the eyes over a sentence. It's a strong accent colour, not a reading colour.
+    </p>
+  </div>
+  <div class="panel">
+    <span class="panel-label label-after">After</span>
+    <div class="fix-tag">✓ Soft gray for readability</div>
+    <div class="hero-bg" style="border-radius:6px">
+      <div class="t-h1" style="font-size:28px">My Projects</div>
+      <p class="t-gray">A selection of projects I've worked on. Click on any project to see more details.</p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      Light gray (#d1d5db) reads cleanly. Reserve amber for labels, dates, and short accents only.
+    </p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Issue 2 -->
+<div class="section-title">Issue 2 — Page h1 missing clamp() on Projects & Contact</div>
+<div class="split">
+  <div class="panel">
+    <span class="panel-label label-before">Before (mobile)</span>
+    <div class="issue-tag">⚠ font-size: 3rem hardcoded</div>
+    <div style="width:220px;background:#0f0d0b;border-radius:6px;padding:16px;margin:0 auto">
+      <div style="font-family:'Bungee',sans-serif;font-size:48px;line-height:1;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,#dc2626,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px">My Projects</div>
+      <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#fbbf24">A selection of projects...</p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      48px heading on a 375px screen — takes up ~30% of the screen before any content shows.
+    </p>
+  </div>
+  <div class="panel">
+    <span class="panel-label label-after">After (mobile)</span>
+    <div class="fix-tag">✓ clamp(1.8rem, 8vw, 3rem)</div>
+    <div style="width:220px;background:#0f0d0b;border-radius:6px;padding:16px;margin:0 auto">
+      <div style="font-family:'Bungee',sans-serif;font-size:clamp(1.8rem,8vw,3rem);letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,#dc2626,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;line-height:1.1">My Projects</div>
+      <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#d1d5db">A selection of projects...</p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      Responsive heading — scales down gracefully. Cards are visible immediately without scrolling.
+    </p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- Issue 3 -->
+<div class="section-title">Issue 3 — Long text goes edge to edge on wide screens</div>
+<div class="split">
+  <div class="panel">
+    <span class="panel-label label-before">Before</span>
+    <div class="issue-tag">⚠ No max line length</div>
+    <div class="overflow-demo">
+      <p class="full-width-text">
+        Full stack developer and entrepreneur with a Master 2 degree from Epitech. Specialized in building modern web applications and managing complete digital ecosystems. Passionate about creating efficient, scalable solutions from frontend to backend.
+      </p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      No line length limit → very long lines on wide monitors → hard to track back to start of next line.
+    </p>
+  </div>
+  <div class="panel">
+    <span class="panel-label label-after">After</span>
+    <div class="fix-tag">✓ max-width: 70ch on body text</div>
+    <div class="overflow-demo">
+      <p class="constrained-text">
+        Full stack developer and entrepreneur with a Master 2 degree from Epitech. Specialized in building modern web applications and managing complete digital ecosystems. Passionate about creating efficient, scalable solutions from frontend to backend.
+      </p>
+    </div>
+    <p style="font-family:'Montserrat',sans-serif;font-size:12px;color:#6b7280;margin-top:10px">
+      65ch cap → ~65 characters per line → optimal reading width. Text stays comfortable on all screen sizes.
+    </p>
+  </div>
+</div>
+
+<div style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.2);border-radius:6px;padding:16px;margin-top:8px">
+  <p style="font-family:'Montserrat',sans-serif;font-size:13px;color:#d1d5db;margin:0">
+    <strong style="color:#4ade80">All 3 fixes proposed.</strong> These are all changes I'll apply — let me know if any of them don't feel right and I'll skip it. Otherwise I'll move on to the final question.
+  </p>
+</div>

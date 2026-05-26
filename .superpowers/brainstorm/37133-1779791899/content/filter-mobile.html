@@ -1,0 +1,228 @@
+<style>
+  .demo-section { margin-bottom: 2rem; }
+  .demo-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 0.5rem; }
+  .phone {
+    width: 320px;
+    background: #1a1612;
+    border-radius: 24px;
+    border: 2px solid #333;
+    padding: 20px 16px;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    margin: 0 auto;
+  }
+  .phone-title {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+  .phone-sub { font-size: 12px; color: #d97706; margin-bottom: 16px; }
+
+  /* Option A - horizontal scroll */
+  .scroll-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scroll-strip::-webkit-scrollbar { display: none; }
+  .chip {
+    flex-shrink: 0;
+    padding: 6px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1.5px solid rgba(220,38,38,0.4);
+    color: #d1d5db;
+    background: rgba(255,255,255,0.04);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .chip.active {
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    color: white;
+    border: none;
+  }
+  .scroll-hint {
+    font-size: 10px;
+    color: #6b7280;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  /* Option B - dropdown */
+  .filter-dropdown {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(220,38,38,0.4);
+    color: #f3f4f6;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .dropdown-arrow { color: #dc2626; font-size: 16px; }
+
+  /* Option C - collapsible */
+  .primary-filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+  .more-btn {
+    flex-shrink: 0;
+    padding: 6px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1.5px solid rgba(220,38,38,0.6);
+    color: #dc2626;
+    background: rgba(220,38,38,0.08);
+    cursor: pointer;
+  }
+  .expanded-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 10px;
+    border: 1px dashed rgba(220,38,38,0.3);
+    border-radius: 4px;
+    background: rgba(220,38,38,0.04);
+  }
+
+  /* cards preview */
+  .mini-grid { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+  .mini-card {
+    background: rgba(31,27,23,0.8);
+    border: 1px solid rgba(220,38,38,0.25);
+    border-radius: 4px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mini-emoji { font-size: 22px; }
+  .mini-info h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #f3f4f6; margin: 0 0 3px; }
+  .mini-info p { font-size: 10px; color: #9ca3af; margin: 0; }
+</style>
+
+<h2>Mobile Filter Bar — Which approach?</h2>
+<p class="subtitle">Right now: 8 filter buttons wrap to 4 messy rows on mobile, burying the project cards. Pick the approach you prefer.</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Horizontal Scroll Strip</h3>
+      <p>Single row, swipe to reveal more. A fade + scroll indicator shows there's more to the right.</p>
+      <div style="margin-top:12px">
+        <div class="phone">
+          <div class="phone-title">My Projects</div>
+          <div class="phone-sub">← swipe to filter →</div>
+          <div class="scroll-strip">
+            <div class="chip active">All</div>
+            <div class="chip">Vue.js</div>
+            <div class="chip">Node.js</div>
+            <div class="chip">MongoDB</div>
+            <div class="chip">Python</div>
+            <div class="chip">PHP</div>
+            <div class="chip">WordPress</div>
+          </div>
+          <div class="scroll-hint">swipe →</div>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="mini-emoji">📊</div><div class="mini-info"><h4>Affluence Dashboard</h4><p>Admin dashboard · Vue.js, Node.js</p></div></div>
+            <div class="mini-card"><div class="mini-emoji">👕</div><div class="mini-info"><h4>Affluence Website</h4><p>E-commerce · WordPress, WooCommerce</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px" class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>One row, doesn't push cards down</li><li>Familiar pattern (Netflix, App Store)</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Hidden filters not obvious</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Dropdown Select</h3>
+      <p>A single "Filter by Technology ▾" button opens a list. Compact and familiar on mobile.</p>
+      <div style="margin-top:12px">
+        <div class="phone">
+          <div class="phone-title">My Projects</div>
+          <div class="phone-sub" style="margin-bottom:12px">A selection of projects I've worked on.</div>
+          <div class="filter-dropdown">
+            <span>■ Filter: All Technologies</span>
+            <span class="dropdown-arrow">▾</span>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="mini-emoji">📊</div><div class="mini-info"><h4>Affluence Dashboard</h4><p>Admin dashboard · Vue.js, Node.js</p></div></div>
+            <div class="mini-card"><div class="mini-emoji">👕</div><div class="mini-info"><h4>Affluence Website</h4><p>E-commerce · WordPress, WooCommerce</p></div></div>
+            <div class="mini-card"><div class="mini-emoji">👟</div><div class="mini-info"><h4>Proxcop.com</h4><p>Sneaker monitor · Vue.js</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px" class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>Most compact on mobile</li><li>Native feel, works perfectly on touch</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Less visual, feels less premium</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Top 3 + "More" Expand</h3>
+      <p>Show the 3 most-used filters (All, Vue.js, Node.js). A "+ More" chip reveals the rest inline.</p>
+      <div style="margin-top:12px">
+        <div class="phone">
+          <div class="phone-title">My Projects</div>
+          <div class="phone-sub" style="margin-bottom:12px">A selection of projects I've worked on.</div>
+          <div class="primary-filters">
+            <div class="chip active">All</div>
+            <div class="chip">Vue.js</div>
+            <div class="chip">Node.js</div>
+            <div class="more-btn">+ 5 More</div>
+          </div>
+          <div class="expanded-filters">
+            <div class="chip">MongoDB</div>
+            <div class="chip">Python</div>
+            <div class="chip">PHP</div>
+            <div class="chip">WordPress</div>
+            <div class="chip">WooCommerce</div>
+            <div class="chip">Express.js</div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card"><div class="mini-emoji">📊</div><div class="mini-info"><h4>Affluence Dashboard</h4><p>Admin dashboard · Vue.js, Node.js</p></div></div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px" class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>Immediate access to main filters</li><li>Full list available without scrolling</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Two-step interaction for rare filters</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
