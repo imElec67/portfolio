@@ -48,17 +48,27 @@
 
           <div class="resume-item reveal">
             <h2>Skills</h2>
-            <div class="skills-grid">
+
+            <div class="skills-group-label">Core Stack</div>
+            <div class="skills-grid" style="margin-bottom: 1.25rem;">
               <span class="skill-tag featured">Node.js</span>
               <span class="skill-tag featured">Vue.js</span>
-              <span class="skill-tag featured">MongoDB</span>
               <span class="skill-tag">React</span>
-              <span class="skill-tag">C</span>
-              <span class="skill-tag">C++</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">Go</span>
               <span class="skill-tag">React Native</span>
               <span class="skill-tag">Flutter</span>
+            </div>
+
+            <div class="skills-group-label">Languages</div>
+            <div class="skills-grid" style="margin-bottom: 1.25rem;">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Go</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C++</span>
+            </div>
+
+            <div class="skills-group-label">Database</div>
+            <div class="skills-grid">
+              <span class="skill-tag featured">MongoDB</span>
             </div>
           </div>
 
@@ -248,5 +258,20 @@ onMounted(() => {
 @media (prefers-reduced-motion: reduce) {
   .hero-badge-dot { animation: none; }
   .hero-scroll-cue { animation: none; }
+}
+
+.skills-group-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-group-label:first-of-type {
+  margin-top: 0.25rem;
 }
 </style>
