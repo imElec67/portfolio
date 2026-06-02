@@ -39,11 +39,11 @@
         tag="div" 
         class="projects-grid"
       >
-        <div 
-          v-for="project in filteredProjects" 
+        <NuxtLink
+          v-for="project in filteredProjects"
           :key="project.id"
+          :to="`/projects/${project.id}`"
           class="project-card"
-          @click="navigateTo(`/projects/${project.id}`)"
         >
           <div class="project-card-image">
             <div class="card-monogram">{{ project.initials }}</div>
@@ -53,8 +53,8 @@
             <h3>{{ project.title }}</h3>
             <p>{{ project.shortDescription }}</p>
             <div class="project-tech">
-              <span 
-                v-for="tech in project.technologies" 
+              <span
+                v-for="tech in project.technologies"
                 :key="tech"
                 class="tech-tag"
               >
@@ -62,7 +62,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </NuxtLink>
       </TransitionGroup>
     </div>
   </section>

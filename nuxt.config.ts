@@ -3,6 +3,23 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
+  nitro: {
+    preset: 'cloudflare-pages',
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/projects',
+        '/contact',
+        '/projects/affluence-dashboard',
+        '/projects/affluence-website',
+        '/projects/proxcop',
+        '/projects/pokecop',
+        '/projects/monitors',
+        '/projects/monitor-manager'
+      ]
+    }
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'en' },

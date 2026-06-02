@@ -570,6 +570,9 @@ section {
 }
 
 .project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--bg-card);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
