@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   nitro: {
-    preset: 'cloudflare-pages',
+    preset: 'cloudflare-pages-static',
     prerender: {
       crawlLinks: true,
       routes: [
