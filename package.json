@@ -6,7 +6,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "TMPDIR=/tmp nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && printf '' > dist/_redirects",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

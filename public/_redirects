@@ -1,1 +1,2 @@
-/* /200.html 200
+# No catch-all — Cloudflare Pages serves index.html per directory natively
+# and uses /404.html automatically for unknown routes
