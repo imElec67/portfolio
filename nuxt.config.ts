@@ -41,7 +41,7 @@ export default defineNuxtConfig({
         },
         // Open Graph
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Marius Ledig — Full Stack Developer & Entrepreneur' },
+        { property: 'og:title', content: 'Nassim' },
         {
           property: 'og:description',
           content: 'Full Stack Developer and Entrepreneur based in Strasbourg. Founder of Affluence Store. Master 2 from Epitech.'
